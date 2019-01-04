@@ -1,5 +1,6 @@
 from collections import Counter
 from simplemr import SimpleMapReducer, SimpleMapCollector
+from pprint import pprint
 
 
 class WordFreqCounter(SimpleMapReducer):
@@ -28,11 +29,11 @@ class SentenceLengthCollector(SimpleMapCollector):
 
 
 if __name__ == '__main__':
-    data = [
+    datasource = [
         "Humpty Dumpty sat on a wall",
         "Humpty Dumpty had a great fall",
         "All the King's horses and all the King's men",
         "Couldn't put Humpty together again",
     ] * 1000
-    # print(WordFreqCounter(data).mapreduce())
-    print(SentenceLengthCollector(data).collect())
+    pprint(WordFreqCounter(datasource).mapreduce())
+    pprint(SentenceLengthCollector(datasource).collect())
